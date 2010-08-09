@@ -7,8 +7,12 @@ class LRUDict(LRUCache):
     """
     def __setitem__(self, key, value):
         return self.put(key, value)
+
     def __getitem__(self, key):
         return self.get(key)
+
+    def __contains__(self, key):
+        return bool(self.get(key))
 
 
 class MemoryLRUNamespaceManager(MemoryNamespaceManager):
@@ -22,5 +26,9 @@ class MemoryLRUNamespaceManager(MemoryNamespaceManager):
             max_items = kwargs['max_items']
         else:
             max_items = self.default_max_items
+
+        def Factory():
+            return LRUDict(int(max_items))
+
         self.dictionary = MemoryNamespaceManager.namespaces.get(
-            self.namespace, LRUDict(max_items))
+            self.namespace, Factory)
