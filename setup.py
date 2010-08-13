@@ -32,7 +32,7 @@ setup(name='infrae.cache',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-        'beaker',
+        'Beaker',
         'repoze.lru',
           ],
       tests_require = tests_require,
@@ -40,5 +40,6 @@ setup(name='infrae.cache',
       entry_points ="""
          [beaker.backends]
          memorylru = infrae.cache.beakerext.lru:MemoryLRUNamespaceManager
+         nocache = infrae.cache.beakerext.nocache:NoCacheNamespaceManager
       """
       )

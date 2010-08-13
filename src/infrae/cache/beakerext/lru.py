@@ -14,6 +14,9 @@ class LRUDict(LRUCache):
     def __contains__(self, key):
         return bool(self.get(key))
 
+    def keys(self):
+        return self.data.keys()
+
 
 class MemoryLRUNamespaceManager(MemoryNamespaceManager):
     """ A memory namespace manager that return with LRU dicts backend
