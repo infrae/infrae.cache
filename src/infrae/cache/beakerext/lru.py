@@ -14,6 +14,10 @@ class LRUDict(LRUCache):
     def __contains__(self, key):
         return bool(self.get(key))
 
+    def __delitem__(self, key):
+        # Deleting items from a LRU cache is not supported.
+        pass
+
     def keys(self):
         return self.data.keys()
 
