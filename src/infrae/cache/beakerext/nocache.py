@@ -23,7 +23,11 @@ class NoCacheNamespaceManager(MemoryNamespaceManager):
     """
     No cache namespace manager used for testing.
     """
-    def __init__(self, namespace):
+    def __init__(self, namespace, **kwargs):
         AbstractDictionaryNSManager.__init__(self, namespace)
-        self.dictionary = NoCache
 
+        def Factory():
+            return NoCache()
+
+        self.dictionary = MemoryNamespaceManager.namespaces.get(
+            self.namespace, Factory)
