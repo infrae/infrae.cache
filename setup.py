@@ -11,7 +11,7 @@ tests_require = [
 
 setup(name='infrae.cache',
       version=version,
-      description="Infrae cache utilities",
+      description="Cache extensions for Beaker.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
@@ -21,10 +21,10 @@ setup(name='infrae.cache',
           "Programming Language :: Python",
           "Topic :: Software Development :: Libraries :: Python Modules",
           ],
-      keywords='zope2 resourceinclude z3c',
+      keywords='beaker cache extension nocache lru memory',
       author='Infrae',
       author_email='info@infrae.com',
-      url='http://hg.infrae.com/infrae.cache',
+      url='https://github.com/infrae/infrae.cache',
       license='ZPL',
       package_dir={'': 'src'},
       packages=find_packages('src'),
